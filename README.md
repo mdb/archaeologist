@@ -1,17 +1,62 @@
-# phl-pac-complaints
+# Archaeologist
 
-A thin Node.js client for working with Philadelphia's [Police Advisory Commission Complaints API](http://gis.phila.gov/ArcGIS/rest/services/PhilaGov/PAC_Complaints_2009_2012/MapServer).
+A thin Node.js client for working with the [ESRI ArcGIS Server REST API](http://resources.esri.com/help/9.3/arcgisserver/apis/rest).
 
 This is a work in progress.
 
-Learn more about Philadelphia's PAC Complaints data on [OpenDataPhilly](http://opendataphilly.org/opendata/resource/218/philadelphia-police-advisory-commission-complaints).
-
 ## Example Usage
 
-    var PhlPacComplaints = require('phl_pac_complaints');
-    var phlPacComplaints = new PhlPacComplaints();
+Basic usage:
 
-    phlPacComplaints.get({where: "ACTION='Reject'"}, function (error, data) {
-        if (error) return error;
-        console.log(data);
+    var Archaeologist = require('archaeologist');
+    var archaeologist = new Archaeologist({
+      apiHost: 'http://host.com',
+      apiPathBase: '/path/to/service'
+    });
+
+    archaeologist.get({where: "SOMEFIELD='SomeValue'"}, function (error, data) {
+      /*
+      performs a get request to:
+      http://host.com/path/to/service?returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outputSpatialReference=&outFields=*&where=SOMEFIELD='SomeValue'&f=json
+      */
+      if (error) return error;
+      console.log(data);
+    });
+
+Overriding default response options:
+
+    var Archaeologist = require('archaeologist');
+    var archaeologist = new Archaeologist({
+      apiHost: 'http://host.com',
+      apiPathBase: '/path/to/service'
+    });
+
+    archaeologist.get({
+      where: "SOMEFIELD='SomeValue'",
+      returnCountOnly: true,
+      outFields: ['somefield']
+    }, function (error, data) {
+      /*
+      performs a get request to:
+      http://host.com/path/to/service?returnCountOnly=true&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outputSpatialReference=&outFields=somefield&where=SOMEFIELD='SomeValue'&f=json
+      */
+      if (error) return error;
+      console.log(data);
+    });
+
+## Configuration
+
+View settings:
+    
+    archaeologist.settings
+
+Specifying default settings on instantiation:
+    
+    var archaeologist = new Archaeologist({
+      apiHost: 'http://host.com',
+      apiPathBase: '/path/to/service',
+      defaultResultOptions: {
+        outFields: ['field', 'anotherField'],
+        f: 'xml'
+      }
     });
