@@ -48,7 +48,7 @@ View settings:
     
     arc.settings
 
-Specifying default settings on instantiation:
+Specifying new settings on instantiation:
     
     var arc = new Arc({
       apiHost: 'http://host.com',
@@ -57,3 +57,23 @@ Specifying default settings on instantiation:
         outFields: ['field', 'anotherField'],
       }
     });
+
+View original, default settings:
+    
+    arc.defaultSettings
+    
+    /*
+    {
+      apiHost: undefined,
+      apiPathBase: undefined,
+      defaultResultOptions: {
+        returnCountOnly: false,
+        returnIdsOnly: false,
+        returnGeometry: true,
+        maxAllowableOffset: '',
+        outputSpatialReference: '',
+        outFields: '*',
+        f: 'json'
+      }
+    }
+    */
