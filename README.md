@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mdb/archaeologist.png?branch=master)](https://travis-ci.org/mdb/archaeologist)
+
 # Archaeologist
 
 A thin Node.js client for working with the [ESRI ArcGIS Server REST API](http://resources.esri.com/help/9.3/arcgisserver/apis/rest).
