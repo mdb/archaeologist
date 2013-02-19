@@ -2,19 +2,17 @@
 
 A thin Node.js client for working with the [ESRI ArcGIS Server REST API](http://resources.esri.com/help/9.3/arcgisserver/apis/rest).
 
-This is a work in progress.
-
 ## Example Usage
 
 Basic usage:
 
-    var Archaeologist = require('archaeologist');
-    var archaeologist = new Archaeologist({
+    var Arc = require('archaeologist');
+    var arc = new Arc({
       apiHost: 'http://host.com',
       apiPathBase: '/path/to/service'
     });
 
-    archaeologist.get({where: "SOMEFIELD='SomeValue'"}, function (error, data) {
+    arc.get({where: "SOMEFIELD='SomeValue'"}, function (error, data) {
       /*
       performs a get request to:
       http://host.com/path/to/service?returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outputSpatialReference=&outFields=*&where=SOMEFIELD='SomeValue'&f=json
@@ -25,13 +23,13 @@ Basic usage:
 
 Overriding default response options:
 
-    var Archaeologist = require('archaeologist');
-    var archaeologist = new Archaeologist({
+    var Arc = require('archaeologist');
+    var arc = new Arc({
       apiHost: 'http://host.com',
       apiPathBase: '/path/to/service'
     });
 
-    archaeologist.get({
+    arc.get({
       where: "SOMEFIELD='SomeValue'",
       returnCountOnly: true,
       outFields: ['somefield']
@@ -48,15 +46,14 @@ Overriding default response options:
 
 View settings:
     
-    archaeologist.settings
+    arc.settings
 
 Specifying default settings on instantiation:
     
-    var archaeologist = new Archaeologist({
+    var arc = new Arc({
       apiHost: 'http://host.com',
       apiPathBase: '/path/to/service',
       defaultResultOptions: {
         outFields: ['field', 'anotherField'],
-        f: 'xml'
       }
     });
