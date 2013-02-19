@@ -29,19 +29,43 @@ describe("Archaeologist", function() {
       });
     });
 
-    it("can be overridden on instantiation", function () {
+    it("can be extended on instantiation", function () {
       var arcInst = new Archaeologist({
         apiHost: 'http://fakehost.com',
-        apiPathBase: '/fake/path',
-        defaultResultOptions: {
-          foo: 'bar',
-          baz: 'bim'
-        }
+        apiPathBase: '/fake/path'
       });
 
       expect(arcInst.settings.apiHost).to.eql('http://fakehost.com');
       expect(arcInst.settings.apiPathBase).to.eql('/fake/path');
-      expect(arcInst.settings.defaultResultOptions).to.eql({foo: 'bar', baz: 'bim'});
+    });
+
+    describe("#defaultResultOptions", function () {
+      it("exists as a property on 'settings'", function () {
+        var arcInst = new Archaeologist({
+          apiHost: 'http://fakehost.com',
+          apiPathBase: '/fake/path',
+          defaultResultOptions: {
+            foo: 'bar',
+            baz: 'bim'
+          }
+        });
+        expect(typeof arc.settings.defaultResultOptions).to.eql('object');
+      });
+
+      it("can be extended on instantiation", function () {
+        var arcInst = new Archaeologist({
+          apiHost: 'http://fakehost.com',
+          apiPathBase: '/fake/path',
+          defaultResultOptions: {
+            foo: 'bar',
+            baz: 'bim'
+          }
+        });
+
+        expect(arcInst.settings.defaultResultOptions.foo).to.eql('bar');
+        expect(arcInst.settings.defaultResultOptions.baz).to.eql('bim');
+        expect(arcInst.settings.defaultResultOptions.f).to.eql('json');
+      });
     });
   });
 
