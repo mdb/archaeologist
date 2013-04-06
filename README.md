@@ -73,9 +73,9 @@ View original, default settings:
       defaultResultOptions: {
         returnCountOnly: false,
         returnIdsOnly: false,
-        returnGeometry: true,
+        returnGeometry: false,
         maxAllowableOffset: '',
-        outputSpatialReference: '',
+        outSR: '4326',
         outFields: '*',
         f: 'json'
       }

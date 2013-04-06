@@ -21,9 +21,9 @@ describe("Archaeologist", function() {
       expect(arc.settings.defaultResultOptions).to.eql({
         returnCountOnly: false,
         returnIdsOnly: false,
-        returnGeometry: true,
+        returnGeometry: false,
         maxAllowableOffset: '',
-        outputSpatialReference: '',
+        outSR: '4326',
         outFields: '*',
         f: 'json'
       });
@@ -81,7 +81,7 @@ describe("Archaeologist", function() {
 
     it("makes an API call to the proper endpoint, appending the object it's passed as a request params string, and also including default result options if none are specified", function (done) {
       nock('http://somehost.com')
-        .get("/some/path/base?foo=bar&returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outputSpatialReference=&outFields=*&f=json")
+        .get("/some/path/base?foo=bar&returnCountOnly=false&returnIdsOnly=false&returnGeometry=false&maxAllowableOffset=&outSR=4326&outFields=*&f=json")
         .reply(200, {resp: 'fakeResponse'});
 
       arcInst.get({foo: 'bar'}, function(err, data) {
@@ -92,7 +92,7 @@ describe("Archaeologist", function() {
 
     it("makes the correct API call if its default result options have been overridden", function (done) {
       nock('http://somehost.com')
-        .get("/some/path/base?foo=bar&returnCountOnly=true&returnIdsOnly=true&returnGeometry=false&maxAllowableOffset=blah&outputSpatialReference=blah&outFields=foo,+bar&f=json")
+        .get("/some/path/base?foo=bar&returnCountOnly=true&returnIdsOnly=true&returnGeometry=false&maxAllowableOffset=blah&outSR=blah&outFields=foo,+bar&f=json")
         .reply(200, {resp: 'fakeResponse'});
 
       arcInst.get({
@@ -101,7 +101,7 @@ describe("Archaeologist", function() {
         returnIdsOnly: true,
         returnGeometry: false,
         maxAllowableOffset: 'blah',
-        outputSpatialReference: 'blah',
+        outSR: 'blah',
         outFields: ['foo', 'bar']
       }, function(err, data) {
         expect(data).to.eql({resp: 'fakeResponse'});
