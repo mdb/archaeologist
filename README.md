@@ -2,7 +2,9 @@
 
 # Archaeologist
 
-A thin Node.js client for working with the [ESRI ArcGIS Server REST API](http://resources.esri.com/help/9.3/arcgisserver/apis/rest).
+A thin Node.js client for working with the [ESRI ArcGIS Server REST API](http://gis.phila.gov/ArcGIS/SDK/REST/index.html?catalog.html).
+
+The ESRI ArgGIS Server Rest API is somewhat confusing. Archaeologist seeks to help.
 
 ## Example Usage
 
