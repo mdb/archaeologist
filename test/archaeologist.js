@@ -22,7 +22,6 @@ describe("Archaeologist", function() {
         returnCountOnly: false,
         returnIdsOnly: false,
         returnGeometry: false,
-        maxAllowableOffset: '',
         outSR: '4326',
         outFields: '*',
         f: 'json'
@@ -81,7 +80,7 @@ describe("Archaeologist", function() {
 
     it("makes an API call to the proper endpoint, appending the object it's passed as a request params string, and also including default result options if none are specified", function (done) {
       nock('http://somehost.com')
-        .get("/some/path/base?foo=bar&returnCountOnly=false&returnIdsOnly=false&returnGeometry=false&maxAllowableOffset=&outSR=4326&outFields=*&f=json")
+        .get("/some/path/base?foo=bar&returnCountOnly=false&returnIdsOnly=false&returnGeometry=false&outSR=4326&outFields=*&f=json")
         .reply(200, {resp: 'fakeResponse'});
 
       arcInst.get({foo: 'bar'}, function(err, data) {
