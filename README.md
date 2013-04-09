@@ -19,7 +19,7 @@ Basic usage:
     arc.get({where: "SOMEFIELD='SomeValue'"}, function (error, data) {
       /*
       performs a get request to:
-      http://host.com/path/to/service?returnCountOnly=false&returnIdsOnly=false&returnGeometry=true&maxAllowableOffset=&outputSpatialReference=&outFields=*&where=SOMEFIELD='SomeValue'&f=json
+      http://host.com/path/to/service?where=SOMEFIELD='SomeValue'&returnCountOnly=false&returnIdsOnly=false&returnGeometry=false&outSR=4326&outFields=*&f=json
       */
       if (error) return error;
       console.log(data);
