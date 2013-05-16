@@ -10,8 +10,8 @@
     "url": "http://github.com/mdb/archaeologist.git"
   },
   "engines": {
-    "node": "0.8.18",
-    "npm": "1.1.x"
+    "node": "0.10.5",
+    "npm": "1.2.8"
   },
   "dependencies": {
     "request": "*",
@@ -23,7 +23,7 @@
     "expect.js": "*",
     "sinon": "1.5.0",
     "grunt": ">=0.4",
-    "grunt-simple-mocha": "0.3.2",
+    "grunt-simple-mocha": "0.4.0",
     "grunt-contrib-jshint": ">=0.1",
     "grunt-cli": "0.1.3"
   },
