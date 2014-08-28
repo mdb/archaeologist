@@ -4,7 +4,7 @@
   "dependencies": {
     "request": {
       "version": "2.40.0",
-      "from": "request@*",
+      "from": "request@2.40.0",
       "resolved": "https://registry.npmjs.org/request/-/request-2.40.0.tgz",
       "dependencies": {
         "qs": {

@@ -21,11 +21,11 @@
     "mocha": "*",
     "nock": "*",
     "expect.js": "*",
-    "sinon": "1.7.3",
+    "sinon": "1.10.3",
     "grunt": ">=0.4",
     "grunt-simple-mocha": "0.4.0",
-    "grunt-contrib-jshint": "0.7.2",
-    "grunt-cli": "0.1.11"
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-cli": "0.1.13"
   },
   "scripts": {
     "test": "grunt --verbose"
