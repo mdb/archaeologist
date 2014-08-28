@@ -10,8 +10,8 @@
     "url": "http://github.com/mdb/archaeologist.git"
   },
   "engines": {
-    "node": "0.10.22",
-    "npm": "1.2.23"
+    "node": "0.10.31",
+    "npm": "1.4.23"
   },
   "dependencies": {
     "request": "*",
