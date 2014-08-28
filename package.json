@@ -14,8 +14,8 @@
     "npm": "1.4.23"
   },
   "dependencies": {
-    "request": "*",
-    "underscore": "1.4.4"
+    "request": "2.40.0",
+    "underscore": "1.7.0"
   },
   "devDependencies": {
     "mocha": "*",
